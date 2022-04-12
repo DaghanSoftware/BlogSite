@@ -13,3 +13,6 @@ C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\DataAccessLayer\obj\De
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\DataAccessLayer\obj\Debug\net5.0\ref\DataAccessLayer.dll
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.pdb
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.genruntimeconfig.cache
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\DataAccessLayer\bin\Debug\net5.0\EntityLayer.dll
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\DataAccessLayer\bin\Debug\net5.0\EntityLayer.pdb
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.csproj.CopyComplete
