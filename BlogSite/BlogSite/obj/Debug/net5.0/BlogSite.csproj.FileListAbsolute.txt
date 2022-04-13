@@ -151,3 +151,4 @@ C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\DataAccessLayer.pdb
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\EntityLayer.pdb
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Views\Category\Index.cshtml.g.cs
