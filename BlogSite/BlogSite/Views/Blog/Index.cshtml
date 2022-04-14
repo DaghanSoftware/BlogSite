@@ -22,7 +22,7 @@
                             <div class="card-body">
                                 <ul class="blog-icons my-4">
 
-                                    <li> <a href="#"><i class="far fa-calendar-alt"></i> @blog.BlogCreateDate</a> </li>
+                                    <li> <a href="#"><i class="far fa-calendar-alt"></i> @(((DateTime)blog.BlogCreateDate).ToString("dd-MMM-yyyyy"))</a> </li>
 
                                     <li class="mx-2"><a href="#"><i class="far fa-comment"></i> 0</a> </li>
 
@@ -32,8 +32,8 @@
                                 <h5 class="card-title">
                                     <a href="single.html">@blog.BlogTitle</a>
                                 </h5>
-                                <p class="card-text mb-3">@blog.BlogContent</p>
-                                <a href="single.html" class="btn btn-primary read-m">Devamını Oku</a>
+                                <p class="card-text mb-3">@blog.BlogContent.Substring(0,blog.BlogContent.Substring(0,125).LastIndexOf(" "))...</p>
+                                <a href="/Blog/BlodDetails/@blog.BlogID" class="btn btn-primary read-m">Devamını Oku</a>
                             </div>
                         </div>
                     }
