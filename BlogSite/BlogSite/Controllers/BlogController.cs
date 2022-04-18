@@ -20,6 +20,7 @@ namespace BlogSite.Controllers
 
         public IActionResult BlogReadAll(int id)
         {
+            ViewBag.BlogId = id;
             var values = bm.GetBlogById(id);
             return View(values);
         }
