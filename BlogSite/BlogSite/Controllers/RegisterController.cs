@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,9 +19,11 @@ namespace BlogSite.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(Writer writer,string WriterPasswordConfirm)
+        public IActionResult Index(Writer writer)
         {
-            if (writer.WriterPassword==WriterPasswordConfirm)
+            WriterValidator validationRules = new WriterValidator();
+            ValidationResult result = validationRules.Validate(writer);
+            if (result.IsValid)
             {
                 writer.WriterStatus = true;
                 writer.WriterAbout = "Deneme test";
@@ -28,8 +32,14 @@ namespace BlogSite.Controllers
             }
             else
             {
-                return View();
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName,item.ErrorMessage);
+                }
+                
             }
+            return View();
+
         }
     }
 }
