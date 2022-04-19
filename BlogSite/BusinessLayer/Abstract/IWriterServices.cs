@@ -9,14 +9,14 @@ namespace BusinessLayer.Abstract
 {
     public interface IWriterServices
     {
-        void CategoryAdd(Writer writer);
+        void WriterAdd(Writer writer);
 
-        void CategoryDelete(Writer writer);
+        void WriterDelete(Writer writer);
 
-        void CategoryUpdate(Writer writer);
+        void WriterUpdate(Writer writer);
 
         List<Writer> GetList();
 
-        Category GetById(int id);
+        Writer GetById(int id);
     }
 }

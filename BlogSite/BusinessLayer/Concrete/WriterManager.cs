@@ -18,22 +18,22 @@ namespace BusinessLayer.Concrete
             _writerdal = writerdal;
         }
 
-        public void CategoryAdd(Writer writer)
+        public void WriterAdd(Writer writer)
         {
             _writerdal.Insert(writer);
         }
 
-        public void CategoryDelete(Writer writer)
+        public void WriterDelete(Writer writer)
         {
             throw new NotImplementedException();
         }
 
-        public void CategoryUpdate(Writer writer)
+        public void WriterUpdate(Writer writer)
         {
             throw new NotImplementedException();
         }
 
-        public Category GetById(int id)
+        public Writer GetById(int id)
         {
             throw new NotImplementedException();
         }
