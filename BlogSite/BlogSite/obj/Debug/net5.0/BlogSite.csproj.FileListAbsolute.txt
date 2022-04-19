@@ -168,3 +168,4 @@ C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\BlogSite.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Views\Shared\Components\WriterLastBlog\Default.cshtml.g.cs
