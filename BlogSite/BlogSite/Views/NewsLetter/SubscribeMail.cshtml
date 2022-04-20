@@ -1,10 +1,10 @@
-﻿<h1>Mail Alanı</h1>
+﻿
 <div class="tech-btm">
-    <h4>Sign up to our newsletter</h4>
-    <p>Pellentesque dui, non felis. Maecenas male </p>
-    <form action="#" method="post">
-        <input type="email" placeholder="Email" required="">
-        <input type="submit" value="Subscribe">
+    <h4>Mail Bültenine abone olun</h4>
+    <p> Paylaşılan tüm bloglardan mail alın</p>
+    <form asp-action="SubscribeMail"  asp-controller="NewsLetter" method="post">
+        <input type="email" placeholder="Email Adresinizi girin." required="" name="Mail">
+        <input type="submit" value="Abone OL">
     </form>
 
 </div>
