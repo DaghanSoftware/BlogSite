@@ -4,6 +4,7 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,10 @@ namespace BlogSite.Controllers
     public class RegisterController : Controller
     {
         WriterManager wm = new WriterManager(new EfWriterRepository());
+        CityManager cm = new CityManager(new EfCityRepository());
         public IActionResult Index()
         {
+            ViewBag.Cities = new SelectList(cm.GetList().ToList(), "CityId", "CityName");
             return View();
         }
         [HttpPost]

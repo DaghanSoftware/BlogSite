@@ -10,7 +10,8 @@
         <h3 class="tittle">Yazar Kayıt Sayfası</h3>
         <div class="inner-sec">
             <div class="login p-5 bg-light mx-auto mw-100">
-                @using (Html.BeginForm("Index", "Register", FormMethod.Post)) {
+                @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+                {
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Adınız Soyadınız</label>
@@ -20,20 +21,20 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom02">Mail Adresi</label>
-                            <input asp-for="WriterMail" type="email" class="form-control" id="validationDefault02" placeholder="" >
+                            <input asp-for="WriterMail" type="email" class="form-control" id="validationDefault02" placeholder="">
                             <span asp-validation-for="WriterMail" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="exampleInputPassword1 mb-2">Şifre</label>
-                            <input asp-for="WriterPassword" type="password" class="form-control" id="password1" placeholder="" >
+                            <input asp-for="WriterPassword" type="password" class="form-control" id="password1" placeholder="">
                             <span asp-validation-for="WriterPassword" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputPassword2 mb-2">Şifreyi Tekrarla</label>
-                            <input name="WriterPasswordConfirm" type="password" class="form-control" id="password2" placeholder="" >
-                            <span  class="text-danger"></span>
+                            <input name="WriterPasswordConfirm" type="password" class="form-control" id="password2" placeholder="">
+                            <span class="text-danger"></span>
                         </div>
 
                     </div>
@@ -44,9 +45,18 @@
                             <span asp-validation-for="WriterImage" class="text-danger"></span>
                         </div>
 
+                        <div class="form-group col-md-6">
+                            <label asp="Doğum Yeri">Doğum Yeri</label>
+                            <select asp-for="CityId" asp-items="@ViewBag.Cities" class="form-control">
+                                <option selected disabled>Şehir Seçiniz</option>
+
+                            </select>
+                            <span asp-validation-for="CityId" class="text-danger"></span>
+                        </div>
+
                     </div>
                     <button type="submit" class="btn btn-primary submit mb-4">Kayıt Ol</button>
-                    <p >
+                    <p>
                         <a id="btn1" href="#">Tüm şartları okudum, kabul ediyorum.</a>
                     </p>
                 }

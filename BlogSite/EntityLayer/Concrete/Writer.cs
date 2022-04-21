@@ -26,6 +26,8 @@ namespace EntityLayer.Concrete
 
         public List<Blog> Blogs { get; set; }
 
+        public int CityId { get; set; }
+
         //public string WriterPasswordConfirm { get; set; }
     }
 }
