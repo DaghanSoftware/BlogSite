@@ -20,11 +20,16 @@ namespace BusinessLayer.ValidationRules
 
             RuleFor(x => x.WriterMail).NotEmpty().WithMessage("Mail adresi kısmı boş geçilemez");
 
-            RuleFor(x => x.WriterPassword).NotEmpty().WithMessage("Şİfre  kısmı boş geçilemez");
-            RuleFor(x => x.WriterPassword).Must(IsPasswordValid).WithMessage("Parola en az 6 karakter olmalıdır.En az bir harf ve bir sayı içermelidir");
+            RuleFor(x => x.WriterPassword).NotEmpty().WithMessage("Şİfre  kısmı boş geçilemez")
+                .Matches("[A-Z]").WithMessage("En az 1 büyük harf içermelidir.")
+                .Matches("[a-z]").WithMessage("En az 1 küçük harf içermelidir.")
+                .Matches("[0-9]").WithMessage("En az 1 rakam içermelidir.")
+                .Matches("[^a-zA-Z0-9]").WithMessage("En az 1 simge içermelidir.");
+
+            //RuleFor(x => x.WriterPassword).Must(IsPasswordValid).WithMessage("Parola en az 6 karakter olmalıdır.En az bir harf ve bir sayı içermelidir");
             //RuleFor(x => x.WriterPasswordConfirm).Equal(x => x.WriterPassword).WithMessage("Passwords do not match");
 
-            
+
         }
         private bool IsPasswordValid(string arg)
         {

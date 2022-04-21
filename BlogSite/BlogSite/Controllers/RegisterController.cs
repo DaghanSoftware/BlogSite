@@ -19,16 +19,24 @@ namespace BlogSite.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(Writer writer)
+        public IActionResult Index(Writer writer,string WriterPasswordConfirm)
         {
             WriterValidator validationRules = new WriterValidator();
             ValidationResult result = validationRules.Validate(writer);
             if (result.IsValid)
             {
-                writer.WriterStatus = true;
-                writer.WriterAbout = "Deneme test";
-                wm.WriterAdd(writer);
-                return RedirectToAction("Index", "Blog");
+                if (writer.WriterPassword == WriterPasswordConfirm)
+                {
+                    writer.WriterStatus = true;
+                    writer.WriterAbout = "Deneme test";
+                    wm.WriterAdd(writer);
+                    return RedirectToAction("Index", "Blog");
+                }
+                else
+                {
+                    return View();
+                }
+                
             }
             else
             {
