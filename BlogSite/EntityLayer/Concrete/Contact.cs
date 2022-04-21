@@ -23,5 +23,11 @@ namespace EntityLayer.Concrete
         public DateTime ContactDate { get; set; }
 
         public bool ContactStatus { get; set; }
+
+        public string Address { get; set; }
+
+        public string Email { get; set; }
+
+        public string Phone { get; set; }
     }
 }
