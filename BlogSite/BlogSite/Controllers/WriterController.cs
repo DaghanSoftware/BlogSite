@@ -9,13 +9,18 @@ namespace BlogSite.Controllers
 {
     public class WriterController : Controller
     {
-        [Authorize]
+        //[Authorize]
         public IActionResult Index()
         {
             return View();
         }
 
         public IActionResult WriterProfile()
+        {
+            return View();
+        }
+
+        public IActionResult WriterMail()
         {
             return View();
         }
