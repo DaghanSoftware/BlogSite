@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,6 +27,9 @@ namespace BlogSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //services.AddSession();
+
             #region Proje Seviyesinde Authorize kullanmamýzý saðlayacak kodlar
             services.AddMvc(config =>
             {
@@ -34,7 +38,25 @@ namespace BlogSite
                 .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
+
+            services.AddMvc();
+            services.AddAuthentication(
+                CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(x =>
+                {
+                    x.LoginPath = "/Login/Index";
+                }
+            );
             #endregion
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+
+                options.LoginPath = "/Login/Index";
+                options.SlidingExpiration = true;
+            });
 
         }
 
@@ -55,8 +77,11 @@ namespace BlogSite
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
+            app.UseAuthentication();
 
+
+            //app.UseSession();
+            app.UseRouting();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

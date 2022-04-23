@@ -10,6 +10,7 @@ namespace BlogSite.Controllers
     public class WriterController : Controller
     {
         //[Authorize]
+        //[AllowAnonymous]
         public IActionResult Index()
         {
             return View();
