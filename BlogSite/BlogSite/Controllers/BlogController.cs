@@ -27,5 +27,21 @@ namespace BlogSite.Controllers
             return View(values);
         }
 
+        public IActionResult BlogListByWriter()
+        {
+            var values = bm.GetBlogListByWriter(1);
+            return View(values);
+        }
+        [HttpGet]
+        public IActionResult BlogAdd()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult BlogAdd(Blog blog)
+        {
+            return View();
+        }
+
     }
 }
