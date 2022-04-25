@@ -1,0 +1,66 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewData["Title"] = "BlogAdd";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+<center>
+    <h1>BlogAdd</h1>
+</center>
+
+<center>
+    @using (Html.BeginForm("BlogAdd", "Blog", FormMethod.Post))
+    {
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label for="validationCustom01">Blog Başlığı</label>
+
+                <input asp-for="BlogTitle" type="text" class="form-control" id="validationDefault01" placeholder="">
+                <span asp-validation-for="BlogTitle" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label for="validationCustom02">Blog İçeriği</label>
+                <textarea asp-for="BlogContent" class="form-control"> </textarea>
+                <span asp-validation-for="BlogContent" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label for="validationCustom02">Blog Resmi</label>
+                <input asp-for="BlogImage" type="text" class="form-control" id="validationDefault01" placeholder="">
+                <span asp-validation-for="BlogImage" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label for="validationCustom02">Blog Küçük GÖrsel</label>
+                <input asp-for="BlogThumbnailImage" type="text" class="form-control" id="validationDefault01" placeholder="">
+                <span asp-validation-for="BlogThumbnailImage" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label for="validationCustom02">Blog Kategori</label>
+                <input asp-for="CategoryID" type="text" class="form-control" id="validationDefault01" placeholder="">
+                <span asp-validation-for="CategoryID" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary submit mb-4">Blog'u' Kaydet</button>
+
+
+    }
+</center>
