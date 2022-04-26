@@ -35,7 +35,7 @@ namespace BlogSite.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var values = bm.GetBlogListByWriter(1);
+            var values = bm.GetListWithCateogryByWriterBm(1);
             return View(values);
         }
 
