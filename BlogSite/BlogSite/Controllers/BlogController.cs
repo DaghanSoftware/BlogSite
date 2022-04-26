@@ -43,12 +43,12 @@ namespace BlogSite.Controllers
         public IActionResult BlogAdd()
         {
             CategoryManager cm = new CategoryManager(new EFCategoryRepository());
-            List<SelectListItem> categoryvalues= (from x in cm.GetList()
-                                                  select new SelectListItem
-                                                  { 
-                                                      Text=x.CategoryName,
-                                                      Value=x.CategoryID.ToString()
-                                                  }).ToList();
+            List<SelectListItem> categoryvalues = (from x in cm.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
             ViewBag.cv = categoryvalues;
             return View();
         }
@@ -60,11 +60,11 @@ namespace BlogSite.Controllers
             ValidationResult result = validationRules.Validate(p);
             if (result.IsValid)
             {
-                    p.BlogStatus = "True";
-                    p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                    p.WriterID = 1;
-                    bm.TAdd(p);
-                    return RedirectToAction("BlogListByWriter", "Blog");
+                p.BlogStatus = "True";
+                p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                p.WriterID = 1;
+                bm.TAdd(p);
+                return RedirectToAction("BlogListByWriter", "Blog");
             }
             else
             {
@@ -75,6 +75,13 @@ namespace BlogSite.Controllers
 
             }
             return View();
+        }
+
+        public IActionResult DeleteBlog(int id)
+        {
+            var blogvalue = bm.GetById(id);
+            bm.TDelete(blogvalue);
+            return RedirectToAction("BlogListByWriter","Blog");
         }
 
     }

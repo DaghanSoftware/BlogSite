@@ -6,59 +6,61 @@
 }
 
 
-            <center>
-                <h1 class="card-title">Oluşturduğum Bloglarım</h1>
-            </center>
+<center>
+    <h1 class="card-title">Oluşturduğum Bloglarım</h1>
+</center>
 
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Blog Başlığı</th>
-                        <th>Oluşturma Tarihi</th>
-                        <th>Kategori</th>
-                        <th>Durumu</th>
-                        <th>Görüntülenme Oranı</th>
-                        <th>Son 1 ayda Görüntülenme</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                    <tr class="table-primary">
-                        @*<td class="py-1">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Blog Başlığı</th>
+            <th>Oluşturma Tarihi</th>
+            <th>Kategori</th>
+            <th>Durumu</th>
+            <th>Görüntülenme Oranı</th>
+            <th>Son 1 ayda Görüntülenme</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr class="table-primary">
+            @*<td class="py-1">
          <img src="/writer/assets/images/faces-clipart/pic-1.png" alt="image" />
         </td>*@
-                        <th>@item.BlogID</th>
-                        <td>@item.BlogTitle</td>
-                        <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</td>
-                        <td>@item.Category.CategoryName</td>
-                        @if (item.BlogStatus =="True")
-                        {
-                            <td><label class="badge badge-success">Yayında</label></td>
-                        }
-                        else
-                        {
-                            <td><label class="badge badge-danger">Pasif</label></td>
-                        }
+            <th>@item.BlogID</th>
+            <td>@item.BlogTitle</td>
+            <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</td>
+            <td>@item.Category.CategoryName</td>
+            @if (item.BlogStatus == "True")
+            {
+                <td><label class="badge badge-success">Yayında</label></td>
+            }
+            else
+            {
+                <td><label class="badge badge-danger">Pasif</label></td>
+            }
 
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </td>
+            <td>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </td>
 
-                        <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
+            <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i></td>
 
-                        <td><a href="#" class="btn btn-danger">Sil</a></td>
-                        <td><a href="#" class="btn btn-inverse-primary">Düzenle</a></td>
-                    </tr>
-                    }
+            @*<td><a href="/Blog/DeleteBlog/@item.BlogID" class="btn btn-danger">Sil</a></td>*@
+            <td><a class="btn btn-danger" href="/Blog/DeleteBlog/@item.BlogID" onclick="return confirmDel();">İçeriği sil</a></td>
+            
+            <td><a href="#" class="btn btn-inverse-primary">Düzenle</a></td>
+        </tr>
+        }
 
-                </tbody>
-            </table>
+    </tbody>
+</table>
 
 <br />
 <center>
@@ -66,3 +68,4 @@
 </center>
 
 
+<script language="javascript">function confirmDel() { var agree = confirm("Bu içeriği silmek istediğinizden emin misiniz?\nBu işlem geri alınamaz!"); if (agree) { return true; } else { return false; } }</script> 
