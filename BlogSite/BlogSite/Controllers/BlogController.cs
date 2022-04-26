@@ -84,5 +84,16 @@ namespace BlogSite.Controllers
             return RedirectToAction("BlogListByWriter","Blog");
         }
 
+        public IActionResult EditBlog(int id)
+        {
+            var blogvalue = bm.GetById(id);
+            return View(blogvalue);
+        }
+        [HttpPost]
+        public IActionResult EditBlog(Blog p)
+        {
+            return RedirectToAction("BlogListByWriter", "Blog");
+        }
+
     }
 }
