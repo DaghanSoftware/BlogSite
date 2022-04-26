@@ -42,6 +42,14 @@ namespace BlogSite.Controllers
         [HttpGet]
         public IActionResult BlogAdd()
         {
+            CategoryManager cm = new CategoryManager(new EFCategoryRepository());
+            List<SelectListItem> categoryvalues= (from x in cm.GetList()
+                                                  select new SelectListItem
+                                                  { 
+                                                      Text=x.CategoryName,
+                                                      Value=x.CategoryID.ToString()
+                                                  }).ToList();
+            ViewBag.cv = categoryvalues;
             return View();
         }
 

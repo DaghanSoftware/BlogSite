@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/WriterLayout.cshtml";
 }
 <center>
-    <h1>BlogAdd</h1>
+    <h1>Yeni Blog Oluştur</h1>
 </center>
 
 <center>
@@ -53,7 +53,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <label for="validationCustom02">Blog Kategori</label>
-                <input asp-for="CategoryID" type="text" class="form-control" id="validationDefault01" placeholder="">
+                @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.cv, new{ @class = "form-control" })
                 <span asp-validation-for="CategoryID" class="text-danger"></span>
             </div>
         </div>
