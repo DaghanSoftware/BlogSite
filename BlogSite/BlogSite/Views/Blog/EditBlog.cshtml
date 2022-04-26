@@ -9,7 +9,7 @@
 </center>
 
 <center>
-    @using (Html.BeginForm("BlogEdit", "Blog", FormMethod.Post))
+    @using (Html.BeginForm("EditBlog", "Blog", FormMethod.Post))
     {
     <input asp-for="BlogID" type="hidden" class="form-control" id="validationDefault01" placeholder="">
         <div class="form-row">
@@ -55,7 +55,8 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <label for="validationCustom02">Blog Kategori</label>
-                @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
+
+                @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
                 <span asp-validation-for="CategoryID" class="text-danger"></span>
             </div>
         </div>
