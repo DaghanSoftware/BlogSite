@@ -23,13 +23,21 @@
                                     <td> @item.CategoryID </td>
                                     <td> @item.CategoryName </td>
                                     <td> @item.CategoryDescription</td>
-                                    <td> @item.CategoryStatus </td>
+                                    @if (item.CategoryStatus == true)
+                                    {
+                                        <td class="badge badge-gradient-success">Aktif</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="badge badge-gradient-success">Aktif</td>
+
+                                    }
                                     <td> </td>
                                     @*<td>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>*@
+                                            <div class="progress">
+                                                <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </td>*@
                                 </tr>
                             }
 
