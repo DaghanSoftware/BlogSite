@@ -32,7 +32,7 @@ namespace BlogSite.Controllers
                 {
                     writer.WriterStatus = true;
                     writer.WriterAbout = "Deneme test";
-                    wm.WriterAdd(writer);
+                    wm.TAdd(writer);
                     return RedirectToAction("Index", "Blog");
                 }
                 else
