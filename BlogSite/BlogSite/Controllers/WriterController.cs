@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BlogSite.Models;
+using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,6 +17,7 @@ namespace BlogSite.Controllers
 {
     public class WriterController : Controller
     {
+        CityManager cm = new CityManager(new EfCityRepository());
         //[Authorize]
         //[AllowAnonymous]
         WriterManager wm = new WriterManager(new EfWriterRepository());
@@ -49,7 +52,7 @@ namespace BlogSite.Controllers
             return PartialView();
         }
         
-        CityManager cm = new CityManager(new EfCityRepository());
+        
         [AllowAnonymous]
         public IActionResult WriterEditProfile()
         {
@@ -84,5 +87,37 @@ namespace BlogSite.Controllers
             return View();
 
         }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public IActionResult WriterAdd()
+        {
+            ViewBag.Cities = new SelectList(cm.GetList().ToList(), "CityId", "CityName");
+            return View();
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult WriterAdd(AddProfileImage writer)
+        {
+            Writer w = new Writer();
+            if (writer.WriterImage != null)
+            {
+                var extension = Path.GetExtension(writer.WriterImage.FileName);
+                var newimagename = Guid.NewGuid() + extension;
+                var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/WriterImageFiles", newimagename);
+                var stream = new FileStream(location, FileMode.Create);
+                writer.WriterImage.CopyTo(stream);
+                w.WriterImage = newimagename;
+            }
+            w.WriterMail = writer.WriterMail;
+            w.WriterName = writer.WriterName;
+            w.WriterPassword = writer.WriterPassword;
+            w.WriterStatus = writer.WriterStatus;
+            w.WriterAbout = writer.WriterAbout;
+            w.CityId = writer.CityId;
+            wm.TAdd(w);
+            return RedirectToAction("Index","Dashboard");
+        }
+
     }
 }
