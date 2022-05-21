@@ -91,7 +91,7 @@ namespace BlogSite.Controllers
             bm.TDelete(blogvalue);
             return RedirectToAction("BlogListByWriter","Blog");
         }
-
+        [HttpGet]
         public IActionResult EditBlog(int id)
         {
             List<SelectListItem> categoryvalues = (from x in cm.GetList()

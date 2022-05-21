@@ -1,0 +1,56 @@
+﻿@model EntityLayer.Concrete.Message2
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+
+<center>
+    <h1>Mesaj Detay</h1>
+</center>
+
+<center>
+    @using (Html.BeginForm("EditBlog", "Blog", FormMethod.Post))
+    {
+        <input asp-for="MessageID" type="hidden" class="form-control" id="validationDefault01" placeholder="" readonly="">
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label for="validationCustom02">Mesajı Gönderen Kişi</label>
+                <input asp-for="SenderUser.WriterName" type="text" class="form-control" id="validationDefault01" placeholder="" readonly="">
+            </div>
+        </div>
+
+        <br />
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label for="validationCustom02">Mesaj Başlığı</label>
+                <input  readonly="" asp-for="Subject" class="form-control"> </input>
+            </div>
+        </div>
+        <br />
+
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label for="validationCustom02">Mesaj İçeriği</label>
+                <textarea readonly="" asp-for="MessageDetails" class="form-control"> </textarea>
+            </div>
+        </div>
+        <br />
+
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label for="validationCustom02">Blog Resmi</label>
+                <input asp-for="MessageDate" type="text" class="form-control" id="validationDefault01" placeholder="" readonly="">
+            </div>
+        </div>
+        <br />
+        <a href="/Message/InBox" class="btn btn-primary">Geri Dön</a>
+
+
+    }
+</center>
+
