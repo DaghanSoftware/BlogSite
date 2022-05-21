@@ -35,7 +35,7 @@ namespace BlogSite.Controllers
                 var useridentitiy = new ClaimsIdentity(claims, "a");
                 ClaimsPrincipal principal = new ClaimsPrincipal(useridentitiy);
                 await HttpContext.SignInAsync(principal);
-                return RedirectToAction("Index", "Writer");
+                return RedirectToAction("Index", "Dashboard");
             }
             else
             {

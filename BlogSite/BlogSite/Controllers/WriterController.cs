@@ -1,6 +1,7 @@
 ﻿using BlogSite.Models;
 using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -21,8 +22,15 @@ namespace BlogSite.Controllers
         //[Authorize]
         //[AllowAnonymous]
         WriterManager wm = new WriterManager(new EfWriterRepository());
+        [Authorize]
         public IActionResult Index()
         {
+            var usermail = User.Identity.Name;
+            ViewBag.v = usermail;
+
+            Context c = new Context();
+            var writerName = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterName).FirstOrDefault();
+            ViewBag.v2 = writerName;
             return View();
         }
 
@@ -35,33 +43,32 @@ namespace BlogSite.Controllers
         {
             return View();
         }
-        [AllowAnonymous]
+
         public IActionResult Test()
         {
             return View();
         }
-        [AllowAnonymous]
+
         public PartialViewResult WriterNavbarPartial()
         {
             return PartialView();
         }
 
-        [AllowAnonymous]
         public PartialViewResult WriterFooterPartial()
         {
             return PartialView();
         }
-        
-        
-        [AllowAnonymous]
+        [HttpGet]
         public IActionResult WriterEditProfile()
         {
+            var usermail = User.Identity.Name;
+            Context c = new Context();
+            var WriterId = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
+
             ViewBag.Cities = new SelectList(cm.GetList().ToList(), "CityId", "CityName");
-            var writervalues = wm.GetById(1);
+            var writervalues = wm.GetById(WriterId);
             return View(writervalues);
         }
-
-        [AllowAnonymous]
         [HttpPost]
         public IActionResult WriterEditProfile(Writer p,string WriterPasswordConfirm)
         {

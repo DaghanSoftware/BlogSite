@@ -10,7 +10,6 @@ namespace BlogSite.Controllers
 {
     public class DashBoardController : Controller
     {
-        [AllowAnonymous]
         public IActionResult Index()
         {
             Context c = new Context();
