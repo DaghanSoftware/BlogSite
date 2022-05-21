@@ -29,5 +29,8 @@ namespace EntityLayer.Concrete
         public int CityId { get; set; }
 
         //public string WriterPasswordConfirm { get; set; }
+
+        public virtual ICollection<Message2> WriterSender { get; set; }
+        public virtual ICollection<Message2> WriterReceiver { get; set; }
     }
 }
