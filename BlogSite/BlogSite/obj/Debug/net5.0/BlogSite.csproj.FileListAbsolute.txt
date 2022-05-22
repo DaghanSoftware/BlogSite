@@ -195,3 +195,5 @@ C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Views\Notification\AllNotification.cshtml.g.cs
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Views\Message\InBox.cshtml.g.cs
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Views\Message\MessageDetails.cshtml.g.cs
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Views\Shared\AdminLayout.cshtml.g.cs
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
