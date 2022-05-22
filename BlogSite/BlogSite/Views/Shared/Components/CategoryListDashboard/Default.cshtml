@@ -23,7 +23,7 @@
                                     <td> @item.CategoryID </td>
                                     <td> @item.CategoryName </td>
                                     <td> @item.CategoryDescription</td>
-                                    @if (item.CategoryStatus == true)
+                                    @if (item.CategoryStatus.Contains("True"))
                                     {
                                         <td class="badge badge-gradient-success">Aktif</td>
                                     }
