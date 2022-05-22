@@ -11,19 +11,21 @@
     <tr>
         <th>#</th>
         <th>Kategori Adı</th>
+        <th>Sil</th>
         <th>Pasif Yap</th>
         <th>Aktif Yap</th>
         <th>Düzenle</th>
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.CategoryID</td>
-            <td>@item.CategoryName</td>
-            <td><a href="#" class="btn btn-danger">Pasif Yap</a></td>
-            <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
-            <td><a href="#" class="btn btn-success">Düzenle</a></td>
-        </tr>
+<tr>
+    <td>@item.CategoryID</td>
+    <td>@item.CategoryName</td>
+    <td><a href="CategoryDelete/@item.CategoryID" id="DeleteBtn" onclick="return confirm('Silmek İstediğinize emin misiniz?');" class="btn btn-danger">Sil</a></td>
+    <td><a href="#" class="btn btn-dark">Pasif Yap</a></td>
+    <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
+    <td><a href="#" class="btn btn-success">Düzenle</a></td>
+</tr>
     }
 </table>
 <br />
