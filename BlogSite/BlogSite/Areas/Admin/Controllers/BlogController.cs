@@ -1,5 +1,6 @@
 ﻿using BlogSite.Areas.Admin.Models;
 using ClosedXML.Excel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace BlogSite.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class BlogController : Controller
     {
         public IActionResult ExportStaticExcelBlogList()
@@ -31,7 +33,7 @@ namespace BlogSite.Areas.Admin.Controllers
                 {
                     workbook.SaveAs(stream);
                     var content = stream.ToArray();
-                    return File(content, "application / vnd.openxmlformats - officedocument.spreadsheetml.sheet", "Calisma1.xlsx");
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Calisma1.xlsx");
                 }
             }
             //return View();
@@ -46,6 +48,11 @@ namespace BlogSite.Areas.Admin.Controllers
                 new BlogModel{ID=4,BlogName="C^# Programlamaya Giriş4"},
             };
             return bm;
+        }
+        [AllowAnonymous]
+        public IActionResult BlogListExcel()
+        {
+            return View();
         }
     }
 }
