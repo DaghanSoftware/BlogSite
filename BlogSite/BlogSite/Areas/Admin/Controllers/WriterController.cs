@@ -1,5 +1,8 @@
 ﻿using BlogSite.Areas.Admin.Models;
+using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -18,6 +21,15 @@ namespace BlogSite.Areas.Admin.Controllers
             return View();
         }
 
+
+        [HttpPost]
+        public IActionResult AddWriter(Writer w)
+        {
+            WriterManager wm = new WriterManager(new EfWriterRepository());
+            wm.TAdd(w);
+            var jsonWriters = JsonConvert.SerializeObject(w);
+            return Json(jsonWriters);
+        }
         public IActionResult WriterList()
         {
             var jsonWriters = JsonConvert.SerializeObject(writers);
@@ -28,7 +40,7 @@ namespace BlogSite.Areas.Admin.Controllers
         {
             Context c = new Context();
             var yazarlar = c.Writers.ToList();
-            var jsonWriters = JsonConvert.SerializeObject(yazarlar.Where(x => x.WriterID == id));
+            var jsonWriters = JsonConvert.SerializeObject(yazarlar.Where(x => x.WriterID == id).FirstOrDefault());
             return Json(jsonWriters);
         }
 

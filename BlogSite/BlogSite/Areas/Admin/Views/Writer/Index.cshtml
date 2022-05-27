@@ -16,6 +16,25 @@
 <div id="writerlist">
     Buraya yazarlar gelecek.
 </div>
+
+<br />
+<br />
+<div>
+    <input type="text" class="form-control" id="WriterName" placeholder="Yazar Name" />
+    <br />
+    <input type="text" class="form-control" id="WriterMail" placeholder="Yazar Mail" />
+    <br />
+    <input type="text" class="form-control" id="WriterAbout" placeholder="Yazar Hakkında" />
+    <br />
+    <input type="text" class="form-control" id="WriterImage" placeholder="Yazar Resmi" />
+    <br />
+    <input type="text" class="form-control" id="WriterPassword" placeholder="Yazar Şifresi" />
+    <br />
+    <input type="text" class="form-control" id="WriterStatus" placeholder="Yazar Durumu" />
+
+
+    <button type="button" id="btnaddwriter" class="btn btn-outline-info"> Yazar Ekle  </button>
+</div>
 @section scripts{ 
 <script>
     $("#btngetlist").click(function () {
@@ -39,7 +58,6 @@
     });
 </script>
 
-
 <script>
     $("#btngetlistdb").click(x => {
         let id = $("#id").val();
@@ -52,16 +70,35 @@
             success: function (func) {
                 let w = jQuery.parseJSON(func);
                 console.log(w);
-                let tablehtml = "<table class=table table-bordered> <tr><th>Yazar ID </th> <th>Yazar Adı </th></tr>";
-                $.each(w, (index, value) => {
-                    tablehtml += `<tr><td>${value.WriterID}</td> <td>${value.WriterName}</td></tr>`
-                });
-                tablehtml += "</table>";
-                $("#writerlist").html(tablehtml);
-                
+                let getvalue = `<table class=table table-bordered> <tr><th>Yazar ID </th> <th>Yazar Adı </th></tr> <tr> <td>${w.WriterID}</td> <td>${w.WriterName}</td></tr></table>`;
+                $("#writerlist").html(getvalue);
+
             }
         });
 
+    });
+</script>
+
+<script>
+    $("#btnaddwriter").click(function () {
+        let writer = {
+            WriterName: $("#WriterName").val(),
+            WriterMail: $("#WriterMail").val(),
+            WriterAbout: $("#WriterAbout").val(),
+            WriterImage: $("#WriterImage").val(),
+            WriterPassword: $("#WriterPassword").val(),
+            WriterStatus: $("#WriterStatus").val()
+
+        };
+        $.ajax({
+            type: "post",
+            url: "/Admin/Writer/AddWriter",
+            data: writer,
+            success: function (func) {
+                let result = jQuery.parseJSON(func);
+                alert("Yazar ekleme işlemi başarılı bir şekilde gerçekleşti");
+            }
+        });
     });
 </script>
 }
