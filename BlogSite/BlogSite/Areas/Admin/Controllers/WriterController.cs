@@ -1,4 +1,5 @@
 ﻿using BlogSite.Areas.Admin.Models;
+using DataAccessLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -20,6 +21,14 @@ namespace BlogSite.Areas.Admin.Controllers
         public IActionResult WriterList()
         {
             var jsonWriters = JsonConvert.SerializeObject(writers);
+            return Json(jsonWriters);
+        }
+
+        public IActionResult GetWriterById(int id)
+        {
+            Context c = new Context();
+            var yazarlar = c.Writers.ToList();
+            var jsonWriters = JsonConvert.SerializeObject(yazarlar.Where(x => x.WriterID == id));
             return Json(jsonWriters);
         }
 

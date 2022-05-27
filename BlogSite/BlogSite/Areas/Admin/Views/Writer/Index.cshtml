@@ -7,8 +7,11 @@
 <h1>Yazar Ajax İşlemleri</h1>
 <br />
 
-<button type="button" id="btngetlist" class="btn btn-outline-primary"> Yazar Listesi </button>
+<button type="button" id="btngetlist" class="btn btn-outline-primary"> Statik Yazar Listesi </button>
 <br />
+<br />
+<input type="text" id="id" placeholder="Yazar Id Değerenii girin"/>
+<button type="button" id="btngetlistdb" class="btn btn-outline-secondary"> Veritabanından ID si seçilen Yazar  </button>
 <br />
 <div id="writerlist">
     Buraya yazarlar gelecek.
@@ -24,7 +27,7 @@
             success: function (func) {
                 let w = jQuery.parseJSON(func);
                 console.log(w);
-                let tablehtml = "<table class=tabke table-bordered> <tr><th>Yazar ID </th> <th>Yazar Adı </th></tr>";
+                let tablehtml = "<table class=table table-bordered> <tr><th>Yazar ID </th> <th>Yazar Adı </th></tr>";
                 $.each(w, (index, value) => {
                     tablehtml += `<tr><td>${value.Id}</td> <td>${value.Name}</td></tr>`
                 });
@@ -35,4 +38,33 @@
 
     });
 </script>
+
+
+<script>
+    $("#btngetlistdb").click(x => {
+        let id = $("#id").val();
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "get",
+            url: "/Admin/Writer/GetWriterById",
+            data: { id: id },
+            success: function (func) {
+                let w = jQuery.parseJSON(func);
+                console.log(w);
+                let tablehtml = "<table class=table table-bordered> <tr><th>Yazar ID </th> <th>Yazar Adı </th></tr>";
+                $.each(w, (index, value) => {
+                    tablehtml += `<tr><td>${value.WriterID}</td> <td>${value.WriterName}</td></tr>`
+                });
+                tablehtml += "</table>";
+                $("#writerlist").html(tablehtml);
+                
+            }
+        });
+
+    });
+</script>
 }
+
+
+
