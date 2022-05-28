@@ -35,6 +35,12 @@
 
     <button type="button" id="btnaddwriter" class="btn btn-outline-info"> Yazar Ekle  </button>
 </div>
+
+<div>
+    <input type="text" class="form-control" id="SilinecekYazarId" placeholder="Yazar ID" />
+    <br />
+    <button type="button" id="btndeletwriter" class="btn btn-outline-info"> Yazar SİL </button>
+</div>
 @section scripts{ 
 <script>
     $("#btngetlist").click(function () {
@@ -88,8 +94,8 @@
             WriterImage: $("#WriterImage").val(),
             WriterPassword: $("#WriterPassword").val(),
             WriterStatus: $("#WriterStatus").val()
-
         };
+
         $.ajax({
             type: "post",
             url: "/Admin/Writer/AddWriter",
@@ -97,6 +103,24 @@
             success: function (func) {
                 let result = jQuery.parseJSON(func);
                 alert("Yazar ekleme işlemi başarılı bir şekilde gerçekleşti");
+            }
+        });
+    });
+</script>
+
+<script>
+    $("#btndeletwriter").click(function () {
+        let writer = {
+            WriterID: $("#SilinecekYazarId").val(),
+        };
+
+        $.ajax({
+            type: "post",
+            url: "/Admin/Writer/DeleteWriter",
+            data: writer,
+            success: function (func) {
+                let result = jQuery.parseJSON(func);
+                alert("Yazar silme işlemi başarılı bir şekilde gerçekleşti");
             }
         });
     });

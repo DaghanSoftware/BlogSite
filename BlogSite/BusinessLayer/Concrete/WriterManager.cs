@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public void TDelete(Writer t)
         {
-            throw new NotImplementedException();
+            _writerdal.Delete(t);
         }
 
         public void TUpdate(Writer t)

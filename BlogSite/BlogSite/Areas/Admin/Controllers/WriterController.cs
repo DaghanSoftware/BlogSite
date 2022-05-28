@@ -15,7 +15,7 @@ namespace BlogSite.Areas.Admin.Controllers
     [Area("Admin")]
     public class WriterController : Controller
     {
-        
+        WriterManager wm = new WriterManager(new EfWriterRepository());
         public IActionResult Index()
         {
             return View();
@@ -25,8 +25,16 @@ namespace BlogSite.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddWriter(Writer w)
         {
-            WriterManager wm = new WriterManager(new EfWriterRepository());
+            
             wm.TAdd(w);
+            var jsonWriters = JsonConvert.SerializeObject(w);
+            return Json(jsonWriters);
+        }
+        [HttpPost]
+        public IActionResult DeleteWriter(Writer w)
+        {
+
+            wm.TDelete(w);
             var jsonWriters = JsonConvert.SerializeObject(w);
             return Json(jsonWriters);
         }
