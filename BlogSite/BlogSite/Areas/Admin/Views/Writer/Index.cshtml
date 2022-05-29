@@ -35,11 +35,35 @@
 
     <button type="button" id="btnaddwriter" class="btn btn-outline-info"> Yazar Ekle  </button>
 </div>
+<br />
+<br />
 
 <div>
     <input type="text" class="form-control" id="SilinecekYazarId" placeholder="Yazar ID" />
     <br />
     <button type="button" id="btndeletwriter" class="btn btn-outline-info"> Yazar SİL </button>
+</div>
+
+<br />
+<br />
+<br />
+<div>
+    <input type="text" class="form-control" id="WriterIDGuncelle" placeholder="Yazar ID" />
+    <br />
+    <input type="text" class="form-control" id="WriterNameGuncelle" placeholder="Yazar Name" />
+    <br />
+    <input type="text" class="form-control" id="WriterMailGuncelle" placeholder="Yazar Mail" />
+    <br />
+    <input type="text" class="form-control" id="WriterAboutGuncelle" placeholder="Yazar Hakkında" />
+    <br />
+    <input type="text" class="form-control" id="WriterImageGuncelle" placeholder="Yazar Resmi" />
+    <br />
+    <input type="text" class="form-control" id="WriterPasswordGuncelle" placeholder="Yazar Şifresi" />
+    <br />
+    <input type="text" class="form-control" id="WriterStatusGuncelle" placeholder="Yazar Durumu" />
+
+
+    <button type="button" id="btnupdatewriter" class="btn btn-outline-info"> Güncelle  </button>
 </div>
 @section scripts{ 
 <script>
@@ -121,6 +145,30 @@
             success: function (func) {
                 let result = jQuery.parseJSON(func);
                 alert("Yazar silme işlemi başarılı bir şekilde gerçekleşti");
+            }
+        });
+    });
+</script>
+
+<script>
+    $("#btnupdatewriter").click(function () {
+        let writer = {
+            WriterID: $("#WriterIDGuncelle").val(),
+            WriterName: $("#WriterNameGuncelle").val(),
+            WriterMail: $("#WriterMailGuncelle").val(),
+            WriterAbout: $("#WriterAboutGuncelle").val(),
+            WriterImage: $("#WriterImageGuncelle").val(),
+            WriterPassword: $("#WriterPasswordGuncelle").val(),
+            WriterStatus: $("#WriterStatusGuncelle").val()
+        };
+
+        $.ajax({
+            type: "post",
+            url: "/Admin/Writer/UpdateWriter",
+            data: writer,
+            success: function (func) {
+                let result = jQuery.parseJSON(func);
+                alert("Yazar güncelleme işlemi başarılı bir şekilde gerçekleşti");
             }
         });
     });

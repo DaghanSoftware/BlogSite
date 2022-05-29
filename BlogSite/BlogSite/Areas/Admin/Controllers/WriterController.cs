@@ -38,6 +38,14 @@ namespace BlogSite.Areas.Admin.Controllers
             var jsonWriters = JsonConvert.SerializeObject(w);
             return Json(jsonWriters);
         }
+
+        public IActionResult UpdateWriter(Writer w)
+        {
+            wm.TUpdate(w);
+            var jsonWriters = JsonConvert.SerializeObject(w);
+            return Json(jsonWriters);
+        }
+
         public IActionResult WriterList()
         {
             var jsonWriters = JsonConvert.SerializeObject(writers);
