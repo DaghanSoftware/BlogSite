@@ -43,5 +43,40 @@ namespace BlogApiDemo.Controllers
             }
             
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult WriterDelete(int id)
+        {
+            using var c = new Context();
+            var yazar = c.Writers.Find(id);
+            if (yazar == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                c.Writers.Remove(yazar);
+                c.SaveChanges();
+                return Ok(yazar);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult WriterUpdate(Writer w)
+        {
+            using var c= new Context();
+            var yazar = c.Writers.Find(w.WriterID);
+            if (yazar==null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                yazar.WriterName = w.WriterName;
+                c.Writers.Update(yazar);
+                c.SaveChanges();
+                return Ok(yazar);
+            }
+        }
     }
 }
