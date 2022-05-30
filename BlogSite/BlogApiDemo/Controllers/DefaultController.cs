@@ -27,5 +27,21 @@ namespace BlogApiDemo.Controllers
             c.SaveChanges();
             return Ok();
         }
+
+        [HttpGet("{id}")]
+        public IActionResult WriterGet(int id)
+        {
+            using var c = new Context();
+            var yazarlar = c.Writers.Find(id);
+            if (yazarlar==null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(yazarlar);
+            }
+            
+        }
     }
 }
