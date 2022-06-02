@@ -217,3 +217,14 @@ C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\Components\Statistic4\Default.cshtml.g.cs
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Chart\Index.cshtml.g.cs
 C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\Writer\Index.cshtml.g.cs
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\BlogApiDemo.deps.json
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\BlogApiDemo.runtimeconfig.json
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\BlogApiDemo.runtimeconfig.dev.json
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\BlogApiDemo.exe
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\BlogApiDemo.dll
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\bin\Debug\net5.0\BlogApiDemo.pdb
+C:\Users\STElb\OneDrive\Belgeler\GitHub\BlogSite\BlogSite\BlogSite\obj\Debug\net5.0\Razor\Areas\Admin\Views\ApiTest\Index.cshtml.g.cs
