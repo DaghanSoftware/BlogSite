@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace BlogSite.Areas.Admin.Controllers
@@ -20,6 +21,28 @@ namespace BlogSite.Areas.Admin.Controllers
             var jsonString = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<List<Class1>>(jsonString);
             return View(values);
+        }
+
+
+        public IActionResult AddWriter()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddWriter(Class1 p)
+        {
+            var httpClient = new HttpClient();
+            var jsonWriter = JsonConvert.SerializeObject(p);
+            StringContent content = new StringContent(jsonWriter, Encoding.UTF8, "application/json");
+            var responseMessage = await httpClient.PostAsync("https://localhost:44301/api/Default", content);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(p);
+            }
         }
     }
     public class Class1

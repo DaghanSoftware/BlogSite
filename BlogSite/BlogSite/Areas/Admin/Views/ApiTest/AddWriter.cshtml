@@ -1,0 +1,13 @@
+﻿@using BlogSite.Areas.Admin.Controllers
+@model Class1
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<form asp-action="AddWriter" asp-controller="ApiTest" method="post">
+
+    <label>Çalışan Adı Soyadı</label>
+    <input type="text" asp-for="@Model.WriterName" class="form-control"/>
+    <br />
+    <button type="submit" class="btn btn-info" >Çalışan Ekle    </button>
+</form>

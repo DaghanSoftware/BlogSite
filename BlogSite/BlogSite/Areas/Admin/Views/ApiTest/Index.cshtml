@@ -1,18 +1,27 @@
 ﻿@using BlogSite.Areas.Admin.Controllers
 @model List<Class1>
 
+@*@{
+    ViewData["Title"] = "BlogListExcel";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}*@
 
 <h1>Index</h1>
-<table>
+<table class="table table-bordered">
     <tr>
         <th>#</th>
         <th>Adı Soyadı</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <th>@item.WriterID</th>
-            <th>@item.WriterName</th>
-        </tr>
+<tr>
+    <th>@item.WriterID</th>
+    <th>@item.WriterName</th>
+    <th><a href="#" class="btn btn-outline-danger">Sil</a></th>
+    <th><a href="#" class="btn btn-outline-success">Düzenle</a></th>
+</tr>
     }
 </table>
+<a href="/Admin/ApiTest/AddWriter" class="btn btn-outline-primary">Yeni Yazar Ekle</a>
