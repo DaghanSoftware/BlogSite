@@ -61,7 +61,7 @@ namespace BlogApiDemo.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         public IActionResult WriterUpdate(Writer w)
         {
             using var c= new Context();
@@ -72,7 +72,15 @@ namespace BlogApiDemo.Controllers
             }
             else
             {
+                yazar.WriterID = w.WriterID;
                 yazar.WriterName = w.WriterName;
+                yazar.WriterMail = w.WriterMail;
+                yazar.WriterImage = w.WriterImage;
+                yazar.WriterPassword = w.WriterPassword;
+                yazar.WriterStatus = w.WriterStatus;
+                yazar.WriterAbout = w.WriterAbout;
+                yazar.CityId = 1;
+
                 c.Writers.Update(yazar);
                 c.SaveChanges();
                 return Ok(yazar);

@@ -56,10 +56,36 @@ namespace BlogSite.Areas.Admin.Controllers
                 var values = JsonConvert.DeserializeObject<Class1>(jsonEmployee);
                 return View(values);
             }
+            return RedirectToAction("Index");
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditWriter(Class1 p)
+        {
+            var httpClient = new HttpClient();
+            var jsonWriter = JsonConvert.SerializeObject(p);
+            StringContent content = new StringContent(jsonWriter, Encoding.UTF8, "application/json");
+            var responseMessage = await httpClient.PutAsync("https://localhost:44301/api/Default/", content);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
             else
             {
-               return RedirectToAction("Index");
+                return View(p);
             }
+            
+        }
+
+        public async Task<IActionResult> DeleteWriter(int id)
+        {
+            var httpClient = new HttpClient();
+            var responseMessage = await httpClient.DeleteAsync("https://localhost:44301/api/Default/" + id);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
 
         }
     }
@@ -78,7 +104,5 @@ namespace BlogSite.Areas.Admin.Controllers
         public string WriterPassword { get; set; }
 
         public bool WriterStatus { get; set; }
-
-        public int CityId { get; set; }
     }
 }

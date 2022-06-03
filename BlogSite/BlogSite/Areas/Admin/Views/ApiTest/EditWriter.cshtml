@@ -1,4 +1,66 @@
-﻿
+﻿@using BlogSite.Areas.Admin.Controllers
+@model BlogSite.Areas.Admin.Controllers.Class1
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
+<h1>Api İle Personel Güncelleme Sayfası</h1>
+<center>
+    <form method="post">
+        <input asp-for="WriterID" type="hidden" class="form-control" placeholder="">
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label>Yazar İsmi</label>
+                <input asp-for="WriterName" type="text" class="form-control" placeholder="">
+            </div>
+        </div>
+        <br />
+
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label for="validationCustom02">Yazar Mail</label>
+                <textarea asp-for="WriterMail" class="form-control"> </textarea>
+            </div>
+        </div>
+        <br />
+
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label >Yazar Hakkında</label>
+                <input asp-for="WriterAbout" type="text" class="form-control"placeholder="">
+            </div>
+        </div>
+        <br />
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label >Yazar Resim</label>
+                <input asp-for="WriterImage" type="text" class="form-control" placeholder="">
+            </div>
+        </div>
+        <br />
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label>Yazar Şifre</label>
+
+                <input asp-for="WriterPassword" type="text" class="form-control" placeholder="">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <label>Yazar Durum</label>
+
+                <input asp-for="WriterStatus" type="text" class="form-control" placeholder="">
+            </div>
+        </div>
+        <br />
+        <br />
+        <button class="btn btn-primary submit mb-4">Yazar Güncelle</button>
+
+    </form>
+</center>
