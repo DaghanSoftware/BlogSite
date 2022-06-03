@@ -44,6 +44,24 @@ namespace BlogSite.Areas.Admin.Controllers
                 return View(p);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EditWriter(int id)
+        {
+            var httpClient = new HttpClient();
+            var responseMessage = await httpClient.GetAsync("https://localhost:44301/api/Default/"+ id);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonEmployee = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<Class1>(jsonEmployee);
+                return View(values);
+            }
+            else
+            {
+               return RedirectToAction("Index");
+            }
+
+        }
     }
     public class Class1
     {
