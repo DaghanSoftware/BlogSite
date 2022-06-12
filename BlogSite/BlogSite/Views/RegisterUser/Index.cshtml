@@ -1,7 +1,8 @@
 ﻿@model UserSignUpViewModel
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -62,7 +63,7 @@
 
                 </div>
                 <div class="col-md-3"></div>
-                
+
             </div>
 
         </div>
@@ -74,7 +75,8 @@
     <script src="inspinia-gh-pages/js/bootstrap.js"></script>
     <!-- iCheck -->
     <script src="inspinia-gh-pages/js/plugins/iCheck/icheck.min.js"></script>
-    <script>$(document).ready(function(){
+    <script>
+    $(document).ready(function () {
             $('.i-checks').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',

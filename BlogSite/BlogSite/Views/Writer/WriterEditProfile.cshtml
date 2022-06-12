@@ -1,4 +1,4 @@
-﻿@model EntityLayer.Concrete.Writer
+﻿@model UserUpdateViewModel
 @{
     ViewData["Title"] = "WriterEditProfile";
     Layout = "~/Views/Shared/WriterLayout.cshtml";
@@ -11,50 +11,60 @@
             <h4 class="card-title">Profi bilgileri düzenleme</h4>
             <form asp-action="WriterEditProfile" asp-controller="Writer" class="forms-sample">
                 <div class="form-group">
-                    <input type="hidden" asp-for="WriterID" class="form-control" id="exampleInputName1">
-                    <label asp-for="WriterName">Ad ve Soyad</label>
-                    <input type="text" asp-for="WriterName" class="form-control" id="exampleInputName1" placeholder="Name">
-                    <span asp-validation-for="WriterName" class="text-danger"></span>
+                    <label asp-for="@Model.namesurname">İsminiz Soyisminiz</label>
+                    <input type="text" asp-for="@Model.namesurname" class="form-control" id="exampleInputEmail3" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <label asp-for="WriterMail">Mailiniz</label>
-                    <input type="email" asp-for="WriterMail" class="form-control" id="exampleInputEmail3" placeholder="Email">
-                    <span asp-validation-for="WriterMail" class="text-danger"></span>
+                    <label asp-for="@Model.username">Kullanıcı Adınız</label>
+                    <input type="text" asp-for="@Model.username" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                    <span asp-validation-for="@Model.username" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="WriterPassword">Yeni Şifreniz</label>
-                    <input type="password" asp-for="WriterPassword" class="form-control" id="exampleInputPassword4" placeholder="Şifrenizi değiştirmek için  yeni şifrenizi giriniz">
-                    <span asp-validation-for="WriterPassword" class="text-danger"></span>
+                    <input type="hidden" asp-for="@Model.mail" class="form-control" id="exampleInputName1">
+                    <label asp-for="@Model.mail">Email</label>
+                    <input type="email" asp-for="@Model.mail" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <span asp-validation-for="@Model.mail" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword2 mb-2">Şifreyi Tekrarla</label>
-                    <input name="WriterPasswordConfirm" type="password" class="form-control" id="password2" placeholder="Şifrenizi tekrar giriniz.">
-                    <span class="text-danger"></span>
+                    <input type="hidden" asp-for="@Model.imageurl" class="form-control" id="exampleInputName1">
+                    <label asp-for="@Model.imageurl">Resim</label>
+                    <input type="text" asp-for="@Model.imageurl" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <span asp-validation-for="@Model.imageurl" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label>Profil Resmi</label>
-                    <input type="file" name="img[]" class="file-upload-default">
-                    <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Profil Resminizi seçmek">
-                        <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Resim Seç</button>
-                        </span>
-                        <span asp-validation-for="WriterImage" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label asp="Doğum Yeri">Doğum Yeri</label>
-                    <select asp-for="CityId" asp-items="@ViewBag.Cities" class="form-control">
-                        <option selected disabled>Şehir Seçiniz</option>
+                @*<div class="form-group">
+            <label asp-for="PasswordHash">Yeni Şifreniz</label>
+            <input type="password" asp-for="PasswordHash" class="form-control" id="exampleInputPassword4" placeholder="Şifrenizi değiştirmek için  yeni şifrenizi giriniz">
+            <span asp-validation-for="PasswordHash" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword2 mb-2">Şifreyi Tekrarla</label>
+            <input name="WriterPasswordConfirm" type="password" class="form-control" id="password2" placeholder="Şifrenizi tekrar giriniz.">
+            <span class="text-danger"></span>
+        </div>*@
+                @*<div class="form-group">
+            <label>Profil Resmi</label>
+            <input type="file" name="img[]" class="file-upload-default">
+            <div class="input-group col-xs-12">
+                <input type="text" class="form-control file-upload-info" disabled placeholder="Profil Resminizi seçmek">
+                <span class="input-group-append">
+                    <button class="file-upload-browse btn btn-gradient-primary" type="button">Resim Seç</button>
+                </span>
+                <span asp-validation-for="WriterImage" class="text-danger"></span>
+            </div>
+        </div>*@
+                @*<div class="form-group">
+            <label asp="Doğum Yeri">Doğum Yeri</label>
+            <select asp-for="CityId" asp-items="@ViewBag.Cities" class="form-control">
+                <option selected disabled>Şehir Seçiniz</option>
 
-                    </select>
-                    <span asp-validation-for="CityId" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label for="exampleTextarea1">Hakkınızda</label>
-                    <textarea asp-for="WriterAbout" class="form-control" id="exampleTextarea1" rows="4" placeholder="Bir blog yazarı olarak kendinizden bahsedin"></textarea>
-                    <span asp-validation-for="WriterAbout" class="text-danger"></span>
-                </div>
+            </select>
+            <span asp-validation-for="CityId" class="text-danger"></span>
+        </div>*@
+                @*<div class="form-group">
+            <label for="exampleTextarea1">Hakkınızda</label>
+            <textarea asp-for="WriterAbout" class="form-control" id="exampleTextarea1" rows="4" placeholder="Bir blog yazarı olarak kendinizden bahsedin"></textarea>
+            <span asp-validation-for="WriterAbout" class="text-danger"></span>
+        </div>*@
                 <button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
             </form>
         </div>
