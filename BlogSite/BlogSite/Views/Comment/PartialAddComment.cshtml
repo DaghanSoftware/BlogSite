@@ -1,12 +1,31 @@
-﻿<div class="comment-top">
+﻿<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<div class="comment-top">
     <h4>Bir yorum yapın</h4>
     <div class="comment-bottom">
-        <form asp-action="PartialAddComment" asp-controller="Comment" method="post">
-            <input class="form-control" type="text" name="CommentUserName" placeholder="Adınız Soyadınız" required="">
-            <input class="form-control" type="text" name="CommentTitle" placeholder="Başlık" required="">
+        <form method="post">
+            <input class="form-control" type="text" id="txtCommentUserName" name="CommentUserName" placeholder="Adınız Soyadınız" required="">
+            <input class="form-control" type="text"  id="txtCommentTitle" name="CommentTitle" placeholder="Başlık" required="">
 
             <textarea class="form-control" name="CommentContent" placeholder="Yorumunuz..." required=""></textarea>
-            <button type="submit" class="btn btn-primary submit">Yorum Yap</button>
+            <button id="btn" type="submit" class="btn btn-primary submit">Yorum Yappp</button>
         </form>
     </div>
 </div>
+<script type="text/javascript">
+    $("#btn").click(function () {
+        let values = {
+            CommentUserName: $("#txtCommentUserName").val(),
+            CommentTitle: $("#txtCommentTitle").val()
+        };
+        $.ajax({
+            type: "post",
+            url: "/Comment/PartialAddComment/",
+            data: values,
+            success: function (func) {
+                let result = jQuery.parseJSON(func);
+            }
+        });
+    });
+</script>
