@@ -18,14 +18,14 @@
     </tr>
     @foreach (var item in Model)
     {
-<tr>
-    <td>@item.CategoryID</td>
-    <td>@item.CategoryName</td>
-    <td><a href="CategoryDelete/@item.CategoryID" id="DeleteBtn" onclick="return confirm('Silmek İstediğinize emin misiniz?');" class="btn btn-danger">Sil</a></td>
-    <td><a href="#" class="btn btn-dark">Pasif Yap</a></td>
-    <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
-    <td><a href="#" class="btn btn-success">Düzenle</a></td>
-</tr>
+        <tr>
+            <td>@item.CategoryID</td>
+            <td>@item.CategoryName</td>
+            <td><a href="CategoryDelete/@item.CategoryID" id="DeleteBtn" onclick="return confirm('Silmek İstediğinize emin misiniz?');" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-dark">Pasif Yap</a></td>
+            <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
+            <td><a href="#" class="btn btn-success">Düzenle</a></td>
+        </tr>
     }
 </table>
 <br />
@@ -33,3 +33,6 @@
 <br />
 
 <a href="/Admin/Category/AddCategory" class="btn btn-secondary"> Yeni Kategori Oluştur</a>
+@section scripts{
+
+}
