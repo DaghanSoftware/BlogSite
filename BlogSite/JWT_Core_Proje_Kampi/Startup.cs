@@ -61,7 +61,7 @@ namespace JWT_Core_Proje_Kampi
             }
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
