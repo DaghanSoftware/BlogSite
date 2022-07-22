@@ -1,5 +1,7 @@
-﻿using BusinessLayer.Concrete;
+﻿using BlogSite.Areas.Admin.Models;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,5 +19,6 @@ namespace BlogSite.Areas.Admin.Controllers
             var values = commentManager.GetCommentListWithBlog();
             return View(values);
         }
+
     }
 }
